@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2016 a las 05:14:41
+-- Tiempo de generación: 16-11-2016 a las 17:34:24
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 7.0.9
 
@@ -41,11 +41,18 @@ CREATE TABLE `tbl_abono` (
 
 CREATE TABLE `tbl_prestamo` (
   `pres_cod` int(11) NOT NULL,
-  `usu_cod` int(11) NOT NULL,
+  `usu` int(11) NOT NULL,
   `total` decimal(10,0) NOT NULL,
   `fecha_prestamo` varchar(10) COLLATE utf8_bin NOT NULL,
   `plazo_prestamo` varchar(10) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `tbl_prestamo`
+--
+
+INSERT INTO `tbl_prestamo` (`pres_cod`, `usu`, `total`, `fecha_prestamo`, `plazo_prestamo`) VALUES
+(2, 1, '20000', '16/11/2016', '2016/11/26');
 
 -- --------------------------------------------------------
 
@@ -67,7 +74,8 @@ CREATE TABLE `tbl_usuario` (
 --
 
 INSERT INTO `tbl_usuario` (`usu`, `cedula`, `nombre`, `apellido`, `telefono`, `pass`) VALUES
-(1, '1036660480', 'wilton', 'acuÃ±a requena', '31111', '');
+(1, '1036660480', 'wilton', 'acuÃ±a requena', '31111', ''),
+(2, '1036660429', 'jerson', 'vasco', '22222', '');
 
 -- --------------------------------------------------------
 
@@ -103,7 +111,7 @@ ALTER TABLE `tbl_abono`
 --
 ALTER TABLE `tbl_prestamo`
   ADD PRIMARY KEY (`pres_cod`),
-  ADD KEY `usu_cod` (`usu_cod`);
+  ADD KEY `usu_cod` (`usu`);
 
 --
 -- Indices de la tabla `tbl_usuario`
@@ -125,12 +133,12 @@ ALTER TABLE `tb_rol`
 -- AUTO_INCREMENT de la tabla `tbl_prestamo`
 --
 ALTER TABLE `tbl_prestamo`
-  MODIFY `pres_cod` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `pres_cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
-  MODIFY `usu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `usu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `tb_rol`
 --
@@ -150,7 +158,7 @@ ALTER TABLE `tbl_abono`
 -- Filtros para la tabla `tbl_prestamo`
 --
 ALTER TABLE `tbl_prestamo`
-  ADD CONSTRAINT `tbl_prestamo_ibfk_1` FOREIGN KEY (`usu_cod`) REFERENCES `tbl_usuario` (`usu`);
+  ADD CONSTRAINT `tbl_prestamo_ibfk_1` FOREIGN KEY (`usu`) REFERENCES `tbl_usuario` (`usu`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

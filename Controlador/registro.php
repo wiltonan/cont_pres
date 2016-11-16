@@ -24,20 +24,20 @@ $accion=$_REQUEST['action'];
       }
         break;
 
-        case 'modificar':
-          $pto_cod=$_POST['pto_cod'];
-          $bono_desc=ucfirst($_POST['bono_desc']);
-          $bono_cod=$_POST['bono_cod'];
+      case 'guardarprestamo':
+        $cedula=$_POST['usu'];
+        $prestamo=$_POST['prestamo'];
+        $fecha_prestamo=$_POST['fecha_prestamo'];
+        $plazo_prestamo=$_POST['plazo_prestamo'];
 
-          try {
-            bono::modificar($pto_cod,$bono_desc,$bono_cod);
-            echo "<script>alert('Se ha modificado el bono');
-            self.location.href='../Views/menu_admin.php?#/bono';
-            </script>";
+        try {
+          Registro::guardarprestamo($cedula,$prestamo,$fecha_prestamo,$plazo_prestamo);
+          echo "<script>alert('Se ha registrado el prestamo');
+          self.location.href='../Views/menu_admin.php?#/Prestar';
+          </script>";
+          }catch (Exception $e) {
+            echo 'No se guardo'.$e;
           }
-          catch (Exception $e){
-              echo 'Ocurrio un error'.$e ;
-          }
-          break;
+            break;
 }
  ?>

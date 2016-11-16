@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <meta charset="utf-8">
     <title></title>
   </head>
   <body>
@@ -27,7 +28,7 @@
             </div>
 
             <div class="input-field col s6">
-              <input type="text" name="telefono" required/>
+              <input type="number" name="telefono" required/>
               <label class="active" for="first_name2">Telefono: </label>
             </div>
           </div>
