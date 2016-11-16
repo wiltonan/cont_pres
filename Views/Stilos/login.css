@@ -1,0 +1,14 @@
+.cuadro_login{
+  border-radius: 10px;
+  height: 250px;
+  width: 300px;
+  margin: auto;
+  text-align: center;
+  box-shadow: inset 0 0 250px #000;
+}
+
+.fondo{
+  background-image: url('../Imagen/1S.jpg');
+  width: 100%;
+  height: 600px;
+}
