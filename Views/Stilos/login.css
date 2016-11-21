@@ -5,10 +5,15 @@
   margin: auto;
   text-align: center;
   box-shadow: inset 0 0 250px #000;
+  position: absolute;
+  top: 150px;
+  left: 40%;
 }
 
 .fondo{
   background-image: url('../Imagen/1S.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
   width: 100%;
-  height: 600px;
+  height: 635px;
 }

@@ -19,7 +19,7 @@
             </div>
 
             <div class="input-field col s12">
-              <input type="text" name="pass"  placeholder="*******" required/>
+              <input type="password" name="pass"  placeholder="*******" required/>
               <label class="active" for="first_name2">Contraseña:</label>
             </div>
           </div>
